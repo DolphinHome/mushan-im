@@ -2,26 +2,24 @@
 	<view>
 		<scroll-view scroll-y="true" class="scor">
 			<view class="list">
-				<view >
-					<view class="item item-left">
-						<u-avatar
-						           text="木杉"
-						           fontSize="18"
-						           randomBgColor></u-avatar>
-							 <view  class="msg-left">hhhhhxiao </view>
-					</view>	
-				</view>
-				<view>
+				<view class="item item-left">
+					<u-avatar
+					           text="木杉"
+					           fontSize="18"
+					           randomBgColor></u-avatar>
+						 <view  class="msg-left">你好哦啊啊啊啊啊我是二级i哦窘境覅偶分阶级发杰佛i额外金佛i额外加 </view>
+				</view>	
 				<view class="item item-right">
-				<u-avatar
-				           text="木杉"
-				           fontSize="18"
-				           randomBgColor></u-avatar>
-				   			 <view  class="msg-right">hhhhhxiao </view>
-				
-			  </view>
+								<u-avatar
+								           text="木杉"
+								           fontSize="18"
+								           randomBgColor></u-avatar>
+								   			 <view  class="msg-right">hhhhhxiao </view>
+								
 				</view>
-			
+	
+				
+	
 			</view>
 		</scroll-view>
 	</view>
@@ -56,18 +54,19 @@
 .item{
 	display: flex;
 	padding: 20rpx 0;
+	
 }
 .item-left{
 	flex-direction: row;
 }
 .msg-left{
-	
+	max-width: 50%;
 	margin-left: 16rpx;
 	background-color: #ffffff;
 	font-size: 25rpx;
 	border-radius: 20rpx;
-	line-height: 44rpx;
-	padding: 16rpx 14rpx;
+	line-height: 50rpx;
+	padding: 16rpx 14rpx; 
 }
 
 .item-right{
@@ -75,11 +74,12 @@ flex-direction: row-reverse;
 }
 .msg-right{
 	margin-right: 16rpx;
-	background-color: #55ffff;
+	background-color: #ffffff;
 	font-size: 25rpx;
 	border-radius: 20rpx;
-	line-height: 44rpx;
+	line-height: 50rpx;
 	padding: 16rpx 14rpx;
+	max-width: 50%;
 }
 
 </style>

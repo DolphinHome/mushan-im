@@ -7,7 +7,6 @@
 			  <view class="item-title">你好啊</view>
 			  <view class="item-time">2001/01/22</view>
 			</view> 
-			
 		</view>
 	</view>
 </template>
@@ -16,7 +15,7 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				
 			}
 		},
 		onLoad() {
