@@ -6,11 +6,17 @@ const store = new Vuex.Store({
     state: {
         socketTask: null,
         websocketData: {}, // 存放从后端接收到的websocket数据
+		user:"",
     },
     mutations: {
         setWebsocketData (state, data) {
-            state.websocketData = data
-        }
+			let message = JSON.parse(data.data);
+			 state.websocketData = message
+        },
+		setUser(state,user){
+			 state.user = user
+		},
+	
     }, 
     actions: {
         websocketInit ({ state, dispatch }, url) {
@@ -33,13 +39,7 @@ const store = new Vuex.Store({
         },
         // 收到数据
         websocketOnMessage ({ commit }, res) {
-            console.log('收到服务器内容：' + res.data)
             if (res.data !== '连接成功') {
-				uni.showToast({
-								title: res,
-								icon:'exception',
-								duration:850
-							});
                 commit('setWebsocketData',res)
             }
         },
