@@ -4,9 +4,9 @@
 				 <u-avatar
 				            text="木杉"
 				            fontSize="18"
-				            randomBgColor
-				    ></u-avatar>
+				            randomBgColor></u-avatar>
 		</view>
+		
 		<view class="cent-boomcent">
 			<u-form :model="form" ref="uForm" :rules="rules">
 				<u-form-item label="名称" prop="name" label-width="130">
