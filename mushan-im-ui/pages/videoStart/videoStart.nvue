@@ -1,27 +1,39 @@
 <template>
     <view>
-        <live-pusher id='livePusher' ref="livePusher" class="livePusher" :url="url"
-        mode="SD" :muted="true" :enable-camera="true" :auto-focus="true" :beauty="1" whiteness="2"
-        aspect="9:16" @statechange="statechange" @netstatus="netstatus" @error = "error"
-        ></live-pusher>
-<!--        <button class="btn" @click="start">开始推流</button>
-        <button class="btn" @click="pause">暂停推流</button>
-        <button class="btn" @click="resume">resume</button>
-        <button class="btn" @click="stop">停止推流</button>
-        <button class="btn" @click="snapshot">快照</button>
-        <button class="btn" @click="startPreview">开启摄像头预览</button>
-        <button class="btn" @click="stopPreview">关闭摄像头预览</button>
-        <button class="btn" @click="switchCamera">切换摄像头</button> -->
+		<video id="myVideo" :src="url"
+		 @error="videoErrorCallback" 
+		 autoplay="true"
+		 object-fit="cover"
+		 :style="{width:wid,height:hei}" :danmu-list="danmuList" enable-danmu danmu-btn controls></video>
+        
+		<live-pusher id='livePusher' ref="livePusher" class="livePusher" :url="url"
+        mode="FHD" 
+		:muted="false" :enable-camera="true" :auto-focus="true" :beauty="1" whiteness="2"
+        aspect="9:16" @statechange="statechange" @netstatus="netstatus" @error = "error"></live-pusher>
     </view>
 </template>
+
+
 
 <script>
     export default {
         data() {
 			return {
-				url:"rtmp://101.42.135.49:1935/live/木杉",
+				src:"",
+				url:"",
+				wid:0,
+				hei:0,
 			}
         },
+		onLoad(e) {
+			//url推自己的流
+			//src 那对方的流
+			this.url = "rtmp://101.42.135.49:1935/live/"+e.from;
+			let getWindowInfo = uni.getWindowInfo();
+			this.hei = getWindowInfo.screenHeight;
+			this.wid = getWindowInfo.screenWidth;
+		
+		},
         onReady() {
             // 注意：需要在onReady中 或 onLoad 延时
             this.context = uni.createLivePusherContext("livePusher", this);
@@ -104,9 +116,18 @@
     }
 </script>
 
+
 <style>
-.livePusher{
-	width: 100%;
-	height: 100%;
-}
+	.vid{
+		width: 1000rpx;
+		height: 1000rpx;
+	}
+	.livePusher{
+		position: fixed;
+		top: 5px;
+		right: 10px;
+		width: 200rpx;
+		height: 360rpx;
+	}
 </style>
+

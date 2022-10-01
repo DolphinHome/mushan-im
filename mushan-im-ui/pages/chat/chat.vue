@@ -16,7 +16,7 @@
 			<view class="boom-item">  
 			<u--input border="bottom" clearable shape="square" v-model="msg"></u--input>
 			<button type="primary" @click="tomsg">发送</button>
-			<u-icon name="phone"  size="38"></u-icon>
+			<u-icon name="phone"  size="38" @click="phoneto"></u-icon>
 			</view>
 		   </view>
 	</view>
@@ -44,6 +44,16 @@
 			this.getToUser(e.to)
 		},
 		methods: {
+			phoneto(){
+				// uni.navigateTo({
+				// 	url: '/pages/videoStart/videoStart?from=熊猫'
+				// });
+				
+				//跳转到电话页面
+				uni.navigateTo({
+					url:'/pages/call/call?to='+this.to
+				})
+			},
 			getToUser(to){
 				this.to = to
 			},

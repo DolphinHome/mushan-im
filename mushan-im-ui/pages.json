@@ -1,15 +1,7 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		
-		{
-		    "path" : "pages/videoStart/videoStart",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
-		},
+	
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -29,8 +21,34 @@
                 "enablePullDownRefresh": false
             }
             
-        }
+        },{
+		    "path" : "pages/videoStart/videoStart",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "视频通话",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
         
+        ,{
+            "path" : "pages/call/call",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/meet/meet",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

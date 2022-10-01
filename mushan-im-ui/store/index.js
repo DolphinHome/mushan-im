@@ -10,7 +10,7 @@ const store = new Vuex.Store({
     },
     mutations: {
         setWebsocketData (state, data) {
-			let message = JSON.parse(data.data);
+			 let message = JSON.parse(data.data);
 			 state.websocketData = message
         },
 		setUser(state,user){
@@ -40,7 +40,19 @@ const store = new Vuex.Store({
         // 收到数据
         websocketOnMessage ({ commit }, res) {
             if (res.data !== '连接成功') {
-                commit('setWebsocketData',res)
+				if(res){
+				let data = JSON.parse(res.data);
+				if(data){
+					if(data.type === 2){
+						//跳转到接电话页面
+					uni.navigateTo({
+						url: '/pages/meet/meet?source='+data.source
+					});
+					}else{
+						 commit('setWebsocketData',res)
+					}
+				}
+				} 
             }
         },
         websocketOnClose ({ commit, dispatch }) {
