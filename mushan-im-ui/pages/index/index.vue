@@ -40,7 +40,7 @@
 		methods: {
 			getlist(){
 				uni.request({
-				    url: 'http://192.168.0.101:8080/user/list', //仅为示例，并非真实接口地址。
+				    url: 'http://192.168.0.102:8080/user/list', //仅为示例，并非真实接口地址。
 				    success: (res) => {
 				      let list =  res.data
 					  this.list = this.remove(list,this.$store.state.user)
@@ -56,7 +56,7 @@
 			},
 			initWebsocket(e){
 				this.$store.commit('setUser',e.id);
-				this.$store.dispatch('websocketInit', 'ws://192.168.0.101:8080/mushan/'+e.id)
+				this.$store.dispatch('websocketInit', 'ws://192.168.0.102:8080/mushan/'+e.id)
 			},
 			 toChat(e){	
 				uni.navigateTo({

@@ -15,7 +15,10 @@
 		watch:{
 		"$store.state.websocketData": function(val, oldval) {
 			if(val.type === 3){
-				console.log("回消息了")
+
+				uni.navigateTo({
+					url: '/pages/videoStart/videoStart?user='+this.user+"&to="+val.source
+				});
 			  }
 			}
 		},

@@ -23,6 +23,10 @@
 				this.$store.dispatch('websocketSend',JSON.stringify(msg))
 				//跳转页面进行通话
 				
+				uni.navigateTo({
+					url: '/pages/videoStart/videoStart?user='+user+"&to="+this.source
+				});
+				
 			}
 		}
 	}

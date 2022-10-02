@@ -1,6 +1,6 @@
 <template>
     <view>
-		<video id="myVideo" :src="url"
+		<video id="myVideo" :src="src"
 		 @error="videoErrorCallback" 
 		 autoplay="true"
 		 object-fit="cover"
@@ -28,7 +28,10 @@
 		onLoad(e) {
 			//url推自己的流
 			//src 那对方的流
-			this.url = "rtmp://101.42.135.49:1935/live/"+e.from;
+			let user = e.user;
+			let to   = e.to;
+			this.url = "rtmp://101.42.135.49:1935/live/"+user;
+			this.src = "rtmp://101.42.135.49:1935/live/"+to;
 			let getWindowInfo = uni.getWindowInfo();
 			this.hei = getWindowInfo.screenHeight;
 			this.wid = getWindowInfo.screenWidth;
